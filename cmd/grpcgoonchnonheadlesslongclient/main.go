@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sync"
 
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/prometheus/client_golang/prometheus"
@@ -57,14 +58,21 @@ func main() {
 		Text: text,
 		Key:  key,
 	}
-	for i := 0; i < 24; i++ {
-		for i := 0; i < 200; i++ {
-			response, err := c.CryptoRequest(context.Background(), &request)
-			if err != nil {
-				grpclog.Fatalf("Error when calling CryptoRequest(): %v", err)
-			}
 
-			log.Printf("Response from Goonch Server: %s", response.Result)
-		}
+	wg := sync.WaitGroup{}
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func() {
+			for i := 0; i < 200; i++ {
+				response, err := c.CryptoRequest(context.Background(), &request)
+				if err != nil {
+					grpclog.Fatalf("Error when calling CryptoRequest(): %v", err)
+				}
+
+				log.Printf("Response from Goonch Server: %s", response.Result)
+			}
+			wg.Done()
+		}()
 	}
+	wg.Wait()
 }
