@@ -7,4 +7,4 @@ ENV GOOS=linux
 RUN chmod +x ./generate.sh && \
     ./generate.sh && \
     go install ./...
-CMD ["/go/bin/grpcgoonchnonheadlessclient"]
+CMD ["/go/bin/grpcgoonchnonheadlesslongclient"]
