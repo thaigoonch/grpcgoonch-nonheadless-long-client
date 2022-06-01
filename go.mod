@@ -4,9 +4,9 @@ go 1.17
 
 require (
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
-	github.com/prometheus/client_golang v1.12.1
-	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4
-	google.golang.org/grpc v1.46.0
+	github.com/prometheus/client_golang v1.12.2
+	golang.org/x/net v0.0.0-20220531201128-c960675eff93
+	google.golang.org/grpc v1.47.0
 )
 
 require (
@@ -17,9 +17,9 @@ require (
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.34.0 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
-	github.com/thaigoonch/grpcgoonch-nonheadless-long v0.0.0-20220504120606-413021d4fc3e
-	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
+	github.com/thaigoonch/grpcgoonch-nonheadless-long v0.0.0-20220601174942-f7863c822806
+	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect
-	google.golang.org/genproto v0.0.0-20220503193339-ba3ae3f07e29 // indirect
+	google.golang.org/genproto v0.0.0-20220601144221-27df5f98adab // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 )
